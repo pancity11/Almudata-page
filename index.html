@@ -3,373 +3,508 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pancity — Data, Airtime & Bills, Wholesale</title>
+<title>Almu Data Sub — Data, airtime and bills at wholesale rates</title>
+<meta name="description" content="Almu Data Sub is one wallet for mobile data, airtime, cable TV, electricity, exam pins and airtime-to-cash on MTN, Airtel, Glo and 9mobile. Wholesale rates from day one.">
+<meta name="theme-color" content="#06412F">
+<meta property="og:title" content="Almu Data Sub — Buy data at agent prices. Sell it at yours.">
+<meta property="og:description" content="Data, airtime, cable TV, electricity and exam pins at wholesale rates. No approval needed to start selling.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M3 30V15a13 13 0 0 1 26 0v15z' fill='%2306412F'/%3E%3Cpath d='M9 30V16a7 7 0 0 1 14 0v14' fill='none' stroke='%232FD38A' stroke-width='2.4' stroke-linecap='round'/%3E%3Cpath d='M13.5 30V16a2.5 2.5 0 0 1 5 0v14z' fill='%23FFC53D'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg: #120F2B;
-    --bg-soft: #17133A;
-    --surface: #1E1948;
-    --surface-2: #241F57;
-    --ink: #FFFFFF;
-    --muted: #B9B3DE;
-    --muted-dim: #8079B0;
-    --gold: #F4A93C;
-    --gold-deep: #C7862B;
-    --teal: #2BC48A;
-    --violet: #7C6CFF;
-    --violet-deep: #5B4CDB;
-    --line: rgba(255,255,255,0.10);
+    --paper:#F4F7F3;
+    --paper-2:#E8EFE7;
+    --ink:#0B2119;
+    --ink-soft:#3D5147;
+    --muted:#5B6C63;
+    --deep:#06412F;
+    --green:#0B7A50;
+    --leaf:#2FD38A;
+    --sun:#FFC53D;
+    --line:#D5DFD3;
+    --display:'Bricolage Grotesque','Trebuchet MS',system-ui,sans-serif;
+    --body:'Figtree',system-ui,-apple-system,'Segoe UI',sans-serif;
+
+    /* Original geometric lattice: diamonds inside diamonds, corner triangles */
+    --zane-light:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='.08' stroke-width='1.2'%3E%3Cpath d='M22 2 42 22 22 42 2 22z'/%3E%3Cpath d='M22 12 32 22 22 32 12 22z'/%3E%3Cpath d='M0 0h5L0 5zM44 0h-5l5 5zM0 44h5L0 39zM44 44h-5l5-5z'/%3E%3C/g%3E%3C/svg%3E");
+    --zane-dark:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44'%3E%3Cg fill='none' stroke='%230B2119' stroke-opacity='.11' stroke-width='1.2'%3E%3Cpath d='M22 2 42 22 22 42 2 22z'/%3E%3Cpath d='M22 12 32 22 22 32 12 22z'/%3E%3Cpath d='M0 0h5L0 5zM44 0h-5l5 5zM0 44h5L0 39zM44 44h-5l5-5z'/%3E%3C/g%3E%3C/svg%3E");
+    --zane-sun:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44'%3E%3Cg fill='none' stroke='%23FFC53D' stroke-opacity='.6' stroke-width='1.4'%3E%3Cpath d='M22 2 42 22 22 42 2 22z'/%3E%3Cpath d='M22 12 32 22 22 32 12 22z'/%3E%3C/g%3E%3Cg fill='%232FD38A' fill-opacity='.55'%3E%3Cpath d='M0 0h5L0 5zM44 0h-5l5 5zM0 44h5L0 39zM44 44h-5l5-5z'/%3E%3C/g%3E%3C/svg%3E");
   }
+
   *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth;scroll-padding-top:84px;}
   body{
-    font-family:'Inter',sans-serif;
-    background:var(--bg);
-    color:var(--muted);
-    line-height:1.55;
-    -webkit-font-smoothing:antialiased;
+    font-family:var(--body);font-size:17px;line-height:1.6;
+    color:var(--ink-soft);background:var(--paper);
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
   }
-  h1,h2,h3,.display{
-    font-family:'Space Grotesk',sans-serif;
-    color:var(--ink);
-    font-weight:600;
-    letter-spacing:-0.01em;
-  }
+  h1,h2,h3,h4{font-family:var(--display);color:var(--ink);font-weight:700;letter-spacing:-0.025em;line-height:1.08;text-wrap:balance;}
   a{color:inherit;text-decoration:none;}
-  img,svg{display:block;max-width:100%;}
+  svg{display:block;}
+  button{font-family:inherit;}
+  :focus-visible{outline:3px solid var(--green);outline-offset:3px;border-radius:6px;}
+  .on-deep :focus-visible{outline-color:var(--sun);}
   .wrap{max-width:1180px;margin:0 auto;padding:0 clamp(20px,5vw,48px);}
-  button{font-family:inherit;cursor:pointer;border:none;}
+  .skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:#fff;padding:10px 16px;border-radius:8px;z-index:100;}
+  .skip:focus{left:12px;}
+
+  /* icon system: one stroke style, optional soft accent fill via --ic-a */
+  .ic{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
+
+  /* arch tile: the shape of the brand mark, reused for icons */
+  .tile-arch{width:88px;height:100px;border-radius:44px 44px 10px 10px;background:var(--paper-2);display:grid;place-items:center;flex-shrink:0;}
+
+  /* ---------- buttons ---------- */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:600;font-size:16px;line-height:1.2;padding:16px 26px;border-radius:12px;border:2px solid transparent;transition:background .15s,color .15s,border-color .15s;}
+  .btn .ic{width:20px;height:20px;stroke-width:2.2;}
+  .btn-primary{background:var(--green);color:#fff;}
+  .btn-primary:hover{background:var(--deep);}
+  .btn-ghost{border-color:var(--ink);color:var(--ink);}
+  .btn-ghost:hover{background:var(--ink);color:var(--paper);}
+  .btn-dark{background:var(--deep);color:#fff;}
+  .btn-dark:hover{background:var(--ink);}
+  .btn-sm{padding:11px 20px;font-size:15px;white-space:nowrap;}
 
   /* ---------- header ---------- */
-  header{
-    position:sticky;top:0;z-index:50;
-    background:rgba(18,15,43,0.86);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--line);
-  }
-  .nav{display:flex;align-items:center;justify-content:space-between;padding:18px clamp(20px,5vw,48px);max-width:1180px;margin:0 auto;}
-  .logo{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;color:var(--ink);}
-  .logo .mark{width:30px;height:30px;flex-shrink:0;object-fit:contain;}
-  .nav-links{display:flex;gap:32px;font-size:15px;font-weight:500;}
-  .nav-links a{color:var(--muted);opacity:0.85;transition:opacity 0.15s,color 0.15s;}
-  .nav-links a:hover{opacity:1;color:var(--ink);}
-  .nav-cta{background:var(--violet);color:var(--ink);padding:11px 22px;border-radius:8px;font-size:14px;font-weight:600;transition:background 0.15s;}
-  .nav-cta:hover{background:var(--violet-deep);}
+  .site-header{position:sticky;top:0;z-index:50;background:rgba(244,247,243,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:24px;max-width:1180px;margin:0 auto;padding:13px clamp(20px,5vw,48px);}
+  .brand{display:flex;align-items:center;gap:10px;white-space:nowrap;font-family:var(--display);font-size:21px;color:var(--ink);letter-spacing:-0.02em;line-height:1;}
+  .brand svg{width:34px;height:34px;}
+  .brand b{font-weight:800;}
+  .brand span{font-weight:500;}
+  .nav-links{display:flex;gap:30px;font-weight:500;font-size:15.5px;}
+  .nav-links a{color:var(--ink-soft);padding:6px 0;border-bottom:2px solid transparent;transition:color .15s,border-color .15s;}
+  .nav-links a:hover{color:var(--ink);border-color:var(--green);}
 
   /* ---------- hero ---------- */
-  .hero{position:relative;padding:clamp(56px,8vw,96px) 0 clamp(48px,7vw,80px);overflow:hidden;}
-  .hero-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:clamp(32px,5vw,56px);align-items:center;}
-  .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;color:var(--gold);margin-bottom:20px;}
-  .hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);}
-  h1.hero-title{font-size:clamp(34px,4.6vw,52px);line-height:1.1;margin-bottom:20px;max-width:15ch;}
-  .hero-sub{font-size:clamp(16px,1.8vw,17.5px);color:var(--muted);max-width:46ch;margin-bottom:30px;}
-  .hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:32px;}
-  .btn-primary{background:var(--violet);color:var(--ink);padding:15px 28px;border-radius:9px;font-size:15.5px;font-weight:600;display:inline-flex;align-items:center;gap:10px;transition:transform 0.15s,background 0.15s;}
-  .btn-primary:hover{background:var(--violet-deep);transform:translateY(-1px);}
-  .btn-secondary{padding:15px 24px;border-radius:9px;font-size:15.5px;font-weight:600;border:1.5px solid rgba(255,255,255,0.18);color:var(--ink);transition:border-color 0.15s,background 0.15s;}
-  .btn-secondary:hover{border-color:var(--ink);background:rgba(255,255,255,0.05);}
-  .hero-stats{display:flex;gap:clamp(20px,3vw,36px);padding-top:24px;border-top:1px solid var(--line);}
-  .hero-stats .stat b{display:block;font-family:'Space Grotesk',sans-serif;font-size:22px;color:var(--ink);font-weight:700;}
-  .hero-stats .stat span{font-size:12.5px;color:var(--muted-dim);}
+  .hero{padding:clamp(40px,6vw,80px) 0 clamp(56px,8vw,104px);}
+  .hero-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(32px,5vw,72px);align-items:center;}
+  .hero h1{font-size:clamp(2.6rem,5.6vw,4.6rem);font-weight:800;line-height:.98;letter-spacing:-0.035em;max-width:13ch;margin-bottom:24px;}
+  .lede{font-size:clamp(1.05rem,1.6vw,1.2rem);max-width:46ch;margin-bottom:32px;}
+  .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:30px;}
+  .stores{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:34px;}
+  .store{position:relative;display:flex;align-items:center;gap:10px;padding:9px 16px 9px 12px;background:#fff;border:1px solid var(--line);border-radius:12px;transition:border-color .15s;}
+  .store:hover{border-color:var(--green);}
+  .store .ic{width:22px;height:22px;color:var(--green);}
+  .store small{display:block;font-size:11.5px;color:var(--muted);line-height:1.2;}
+  .store strong{display:block;font-family:var(--display);font-size:15px;color:var(--ink);line-height:1.25;font-weight:600;}
+  .store em{font-style:normal;background:var(--sun);color:var(--ink);font-size:11px;font-weight:700;padding:2px 9px;border-radius:99px;margin-left:4px;}
+  .networks{display:flex;align-items:center;flex-wrap:wrap;gap:10px;}
+  .networks > span:first-child{font-size:14.5px;color:var(--muted);margin-right:4px;}
+  .net{display:inline-flex;align-items:center;gap:8px;padding:6px 14px 6px 10px;background:#fff;border:1px solid var(--line);border-radius:99px;font-size:14px;font-weight:600;color:var(--ink);}
+  .net i{width:10px;height:10px;border-radius:50%;background:var(--c);}
 
-  .store-badges{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:32px;}
-  .store-badge{position:relative;display:flex;align-items:center;gap:9px;background:var(--surface);border:1px solid var(--line);padding:9px 16px 9px 12px;border-radius:10px;transition:border-color 0.15s,background 0.15s;}
-  .store-badge:hover{border-color:rgba(255,255,255,0.28);background:var(--surface-2);}
-  .store-badge div{display:flex;flex-direction:column;line-height:1.15;}
-  .sb-top{font-size:8.5px;letter-spacing:0.04em;color:var(--muted-dim);}
-  .sb-bottom{font-size:14px;font-weight:600;color:var(--ink);font-family:'Space Grotesk',sans-serif;}
-  .store-badge em{position:absolute;top:-9px;right:-8px;font-style:normal;background:var(--gold);color:#1B1400;font-size:9px;font-weight:700;padding:3px 8px;border-radius:20px;letter-spacing:0.02em;}
-
-  /* ---------- app screenshot (hero visual) ---------- */
-  .app-shot{
-    position:relative;
-    background:linear-gradient(160deg,var(--surface),var(--surface-2));
-    border:1px solid var(--line);border-radius:28px;
-    padding:14px;box-shadow:0 40px 80px -30px rgba(0,0,0,0.55);
-    max-width:340px;margin:0 auto;
-  }
-  .app-shot img{width:100%;height:auto;display:block;border-radius:18px;object-fit:contain;}
-
-  /* ---------- strip ---------- */
-  .strip{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 0;overflow:hidden;}
-  .strip-inner{display:flex;gap:56px;white-space:nowrap;font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:500;color:var(--muted);animation:scroll 28s linear infinite;}
-  .strip-inner span{display:flex;align-items:center;gap:10px;}
-  .strip-inner span::after{content:"—";opacity:0.35;margin-inline-start:56px;}
-  @keyframes scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  /* hero stage: arch + phone */
+  .arch{position:relative;width:100%;max-width:440px;height:clamp(470px,52vw,580px);margin-left:auto;border-radius:220px 220px 28px 28px;background-color:var(--deep);background-image:var(--zane-light);overflow:hidden;}
+  .arch::before,.arch::after{content:"";position:absolute;left:0;right:0;bottom:0;border:2px solid;border-bottom:0;border-radius:999px 999px 0 0;pointer-events:none;}
+  .arch::before{top:20px;margin:0 20px;border-color:rgba(47,211,138,.4);}
+  .arch::after{top:44px;margin:0 44px;border-color:rgba(255,197,61,.32);}
+  .phone{position:absolute;z-index:2;left:50%;top:70px;bottom:0;width:min(272px,76%);transform:translateX(-50%);background:var(--paper);border:9px solid var(--ink);border-bottom:0;border-radius:40px 40px 0 0;overflow:hidden;box-shadow:0 30px 60px -20px rgba(0,0,0,.5);}
+  .screen{position:relative;height:100%;padding:16px 14px;}
+  .s-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+  .s-top small{display:block;font-size:11px;color:var(--muted);line-height:1.2;}
+  .s-top b{display:block;font-family:var(--display);font-size:18px;color:var(--ink);line-height:1.2;}
+  .s-av{width:32px;height:32px;border-radius:50%;background:var(--deep);color:var(--sun);font-family:var(--display);font-weight:700;font-size:14px;display:grid;place-items:center;}
+  .s-wallet{position:relative;background-color:var(--deep);background-image:var(--zane-light);border-radius:18px;padding:14px 14px 16px;color:#B7CDBF;margin-bottom:14px;}
+  .s-wallet small{display:block;font-size:11px;}
+  .s-wallet b{display:block;font-family:var(--display);font-size:27px;color:#fff;letter-spacing:-0.02em;line-height:1.25;}
+  .s-fund{position:absolute;right:12px;top:12px;background:var(--sun);color:var(--ink);font-size:10.5px;font-weight:700;padding:5px 10px;border-radius:99px;}
+  .s-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;}
+  .s-tile{display:flex;flex-direction:column;align-items:center;gap:7px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 2px 9px;font-size:9px;letter-spacing:-0.01em;font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;}
+  .s-ic{width:30px;height:34px;border-radius:15px 15px 5px 5px;background:var(--paper-2);display:grid;place-items:center;color:var(--green);}
+  .s-ic .ic{width:18px;height:18px;}
+  .s-acct{display:flex;align-items:center;gap:10px;margin-top:12px;padding:10px 12px;background:#fff;border:1px solid var(--line);border-radius:14px;}
+  .s-acct .s-ic{width:28px;height:32px;flex-shrink:0;}
+  .s-acct b{display:block;font-family:var(--display);font-size:12px;color:var(--ink);line-height:1.25;}
+  .s-acct small{display:block;font-size:10px;color:var(--muted);line-height:1.3;}
+  .s-tile.hot{animation:press .5s ease 1s 1 both;}
+  .s-sheet{position:absolute;left:10px;right:10px;bottom:12px;display:grid;background:#fff;border-radius:20px;padding:14px;box-shadow:0 -12px 32px rgba(6,65,47,.28);border:1px solid var(--line);transform:translateY(140%);animation:sheet .6s cubic-bezier(.2,.8,.2,1) 1.5s 1 forwards;}
+  .sheet-row{grid-area:1/1;display:flex;align-items:center;gap:12px;}
+  .sheet-row b{display:block;font-family:var(--display);font-size:14.5px;color:var(--ink);line-height:1.25;}
+  .sheet-row small{display:block;font-size:11px;color:var(--muted);line-height:1.3;}
+  .spin{width:34px;height:34px;border-radius:50%;border:3px solid var(--line);border-top-color:var(--green);flex-shrink:0;animation:spin .8s linear 1.6s 4;}
+  .sending{animation:fadeout .3s ease 4.9s 1 forwards;}
+  .done{opacity:0;animation:fadein .4s ease 5s 1 forwards;}
+  .tick{stroke-dasharray:1;stroke-dashoffset:1;animation:draw .5s ease 5.2s 1 forwards;}
+  @keyframes press{0%,100%{transform:none;}50%{transform:scale(.93);background:var(--paper-2);}}
+  @keyframes sheet{to{transform:none;}}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  @keyframes fadeout{to{opacity:0;}}
+  @keyframes fadein{to{opacity:1;}}
+  @keyframes draw{to{stroke-dashoffset:0;}}
 
   /* ---------- sections ---------- */
-  .section{padding:clamp(56px,9vw,110px) 0;}
-  .section-head{max-width:640px;margin-bottom:clamp(36px,5vw,52px);}
-  .section-kicker{color:var(--gold);font-weight:600;font-size:13.5px;margin-bottom:12px;}
-  h2.section-title{font-size:clamp(28px,3.4vw,38px);line-height:1.14;}
-  .section-title + p{margin-top:16px;color:var(--muted);font-size:16px;max-width:52ch;}
+  .block{padding:clamp(64px,9vw,112px) 0;}
+  .alt{background:var(--paper-2);}
+  h2.title{font-size:clamp(2rem,3.8vw,3rem);font-weight:700;max-width:19ch;}
+  .intro{margin-top:18px;max-width:56ch;font-size:1.05rem;}
 
-  .feature-layout{display:grid;grid-template-columns:1.3fr 1fr;gap:20px;}
-  .feature-hero-card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:clamp(28px,3.5vw,40px);display:flex;flex-direction:column;justify-content:space-between;min-height:320px;}
-  .feature-hero-card h3{font-size:23px;margin-bottom:12px;}
-  .feature-hero-card p{color:var(--muted);font-size:15px;max-width:38ch;}
-  .icon-badge{width:50px;height:50px;border-radius:13px;background:var(--violet);display:flex;align-items:center;justify-content:center;margin-bottom:auto;}
-  .feature-stack{display:flex;flex-direction:column;gap:20px;}
-  .feature-row{background:var(--surface);border-radius:20px;padding:24px 26px;display:flex;gap:18px;align-items:flex-start;border:1px solid var(--line);flex:1;}
-  .feature-row .icon-badge{width:42px;height:42px;border-radius:11px;flex-shrink:0;background:var(--surface-2);}
-  .feature-row h3{font-size:17px;margin-bottom:6px;color:var(--ink);}
-  .feature-row p{font-size:14.5px;color:var(--muted);}
+  /* features */
+  .features-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,6vw,88px);align-items:start;}
+  .features-head{position:sticky;top:110px;}
+  .feat{display:grid;grid-template-columns:88px minmax(0,1fr);gap:28px;padding:34px 0;border-top:1px solid var(--line);}
+  .feat:last-child{border-bottom:1px solid var(--line);}
+  .feat h3{font-size:1.4rem;margin-bottom:8px;}
+  .feat p{max-width:44ch;}
+  .feat svg.spot{width:64px;height:64px;}
 
-  /* ---------- VTU services ---------- */
-  .vtu-section{background:var(--bg-soft);}
-  .vtu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden;}
-  .vtu-item{background:var(--bg-soft);padding:28px 26px;}
-  .vtu-item .icon-badge{width:40px;height:40px;border-radius:10px;background:var(--surface-2);margin-bottom:16px;}
-  .vtu-item h3{font-size:16.5px;margin-bottom:8px;color:var(--ink);}
-  .vtu-item p{font-size:14px;color:var(--muted);margin-bottom:12px;}
-  .vtu-item ul{list-style:none;display:flex;flex-direction:column;gap:6px;}
-  .vtu-item li{font-size:12.5px;color:var(--muted-dim);display:flex;align-items:center;gap:7px;}
-  .vtu-item li::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+  /* services */
+  .services{background-color:var(--deep);background-image:var(--zane-light);color:#B7CDBF;}
+  .services h2{color:#fff;}
+  .svc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:clamp(24px,4vw,56px);margin-top:clamp(40px,6vw,64px);}
+  .svc{padding:32px 0 40px;border-top:1px solid rgba(255,255,255,.18);}
+  .svc .tile-arch{width:56px;height:64px;border-radius:28px 28px 8px 8px;background:rgba(255,255,255,.12);margin-bottom:22px;color:var(--sun);--ic-a:var(--sun);}
+  .svc .ic{width:28px;height:28px;}
+  .svc h3{color:#fff;font-size:1.3rem;margin-bottom:8px;}
+  .svc p{margin-bottom:16px;font-size:16px;}
+  .svc ul{list-style:none;display:grid;gap:7px;}
+  .svc li{display:flex;align-items:center;gap:10px;font-size:14.5px;color:#9DBBAB;}
+  .svc li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--leaf);flex-shrink:0;}
 
-  /* ---------- security ---------- */
-  .security-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-  .security-card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:26px 26px;}
-  .security-card .icon-badge{width:44px;height:44px;border-radius:12px;background:var(--surface-2);margin-bottom:18px;}
-  .security-card h3{font-size:16.5px;margin-bottom:8px;}
-  .security-card p{font-size:14px;color:var(--muted);}
+  /* security */
+  .guard-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,4vw,56px);margin-top:clamp(40px,6vw,56px);}
+  .guard{border-top:3px solid var(--deep);padding-top:28px;}
+  .guard .tile-arch{width:56px;height:64px;border-radius:28px 28px 8px 8px;color:var(--green);--ic-a:var(--leaf);margin-bottom:22px;}
+  .guard .ic{width:28px;height:28px;}
+  .guard h3{font-size:1.3rem;margin-bottom:10px;}
+  .guard p{max-width:40ch;}
 
-  /* ---------- comparison table ---------- */
-  .compare-wrap{background:var(--surface);border:1px solid var(--line);border-radius:20px;overflow:hidden;}
+  /* steps */
+  .steps{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,3vw,40px);margin-top:clamp(40px,6vw,56px);}
+  .step{position:relative;padding-top:68px;}
+  .step .n{position:absolute;top:0;left:0;width:46px;height:46px;border-radius:50%;background:var(--deep);color:var(--sun);font-family:var(--display);font-weight:700;font-size:18px;display:grid;place-items:center;}
+  .step::before{content:"";position:absolute;top:22px;left:58px;right:calc(12px - clamp(16px,3vw,40px));border-top:2px dashed #9DB5A6;}
+  .step:last-child::before{display:none;}
+  .step h3{font-size:1.25rem;margin-bottom:8px;}
+
+  /* comparison */
+  .compare-wrap{margin-top:clamp(36px,5vw,52px);border:1px solid var(--line);border-radius:18px;overflow-x:auto;background:#fff;}
   table.compare{width:100%;border-collapse:collapse;}
-  table.compare th,table.compare td{padding:16px 20px;text-align:left;font-size:14.5px;border-bottom:1px solid var(--line);}
-  table.compare th{font-family:'Space Grotesk',sans-serif;font-size:13px;color:var(--muted-dim);font-weight:600;background:var(--surface-2);}
-  table.compare td:first-child{color:var(--ink);font-weight:500;}
-  table.compare td.win{color:var(--teal);font-weight:600;}
-  table.compare td.lose{color:var(--muted-dim);}
-  table.compare tr:last-child td{border-bottom:none;}
+  table.compare th,table.compare td{padding:18px 22px;text-align:left;font-size:16px;vertical-align:top;}
+  table.compare thead th{font-family:var(--display);font-size:16px;font-weight:700;color:var(--ink);background:var(--paper-2);}
+  table.compare thead th.us{background:var(--deep);color:#fff;}
+  table.compare tbody tr + tr > *{border-top:1px solid var(--line);}
+  table.compare tbody th{font-weight:600;color:var(--ink);width:22%;}
+  table.compare td.us{background:var(--deep);color:#fff;font-weight:600;border-top:1px solid rgba(255,255,255,.14);}
+  table.compare td.them{color:var(--muted);}
+  .cellrow{display:flex;gap:10px;align-items:flex-start;}
+  .cellrow .ic{width:20px;height:20px;margin-top:3px;color:var(--leaf);stroke-width:2.4;}
 
-  /* ---------- faq ---------- */
-  .faq-list{display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden;max-width:820px;}
-  .faq-item{background:var(--bg-soft);padding:6px 26px;}
-  .faq-item summary{list-style:none;padding:18px 0;display:flex;align-items:center;justify-content:space-between;gap:16px;cursor:pointer;font-size:15.5px;font-weight:600;color:var(--ink);}
-  .faq-item summary::-webkit-details-marker{display:none;}
-  .faq-item summary .chevron{flex-shrink:0;width:18px;height:18px;color:var(--muted-dim);transition:transform 0.2s;}
-  .faq-item[open] summary .chevron{transform:rotate(180deg);}
-  .faq-item p{font-size:14.5px;color:var(--muted);padding-bottom:20px;max-width:66ch;}
+  /* agent band */
+  .band{background-color:var(--sun);background-image:var(--zane-dark);color:var(--ink);border-radius:96px 28px 28px 28px;padding:clamp(36px,6vw,72px);display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(28px,5vw,64px);align-items:center;}
+  .band h2{font-size:clamp(2rem,3.6vw,3rem);margin-bottom:16px;max-width:16ch;}
+  .band p{color:var(--ink);max-width:46ch;margin-bottom:28px;}
+  .figs{margin:0;}
+  .fig{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:18px 0;border-top:2px solid var(--ink);}
+  .fig:last-child{border-bottom:2px solid var(--ink);}
+  .fig dt{font-size:15px;font-weight:600;}
+  .fig dd{font-family:var(--display);font-weight:800;font-size:clamp(2rem,3.4vw,2.8rem);letter-spacing:-0.03em;line-height:1;color:var(--ink);}
 
-  /* ---------- steps ---------- */
-  .steps-section{background:var(--bg);}
-  .steps{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);}
-  .step{padding:32px 24px 32px 0;border-inline-end:1px solid var(--line);}
-  .step:last-child{border-inline-end:none;}
-  .step-num{font-family:'Space Grotesk',sans-serif;font-size:15px;color:var(--gold);font-weight:700;margin-bottom:18px;}
-  .step h3{font-size:17px;margin-bottom:8px;}
-  .step p{font-size:14px;color:var(--muted);}
+  /* faq */
+  .faq{max-width:860px;margin-top:clamp(32px,5vw,44px);border-bottom:1px solid var(--line);}
+  .faq details{border-top:1px solid var(--line);}
+  .faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;font-family:var(--display);font-weight:600;font-size:1.2rem;color:var(--ink);letter-spacing:-0.015em;line-height:1.3;}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq .chev{width:22px;height:22px;color:var(--green);stroke-width:2.2;transition:transform .2s;}
+  .faq details[open] .chev{transform:rotate(180deg);}
+  .faq p{padding:0 44px 26px 0;max-width:64ch;}
 
-  /* ---------- band ---------- */
-  .band{background:linear-gradient(120deg,var(--violet-deep),#3B2E9E);color:var(--ink);border-radius:24px;padding:clamp(36px,6vw,60px);display:grid;grid-template-columns:1.1fr 0.9fr;gap:32px;align-items:center;}
-  .band h2{font-size:clamp(24px,3vw,32px);margin-bottom:14px;}
-  .band p{color:#E1DBFF;font-size:15px;max-width:44ch;}
-  .band-figures{display:flex;flex-direction:column;gap:16px;}
-  .band-figure{background:rgba(255,255,255,0.12);border-radius:14px;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;}
-  .band-figure b{font-family:'Space Grotesk',sans-serif;font-size:20px;color:var(--gold);}
-  .band-figure span{font-size:12.5px;color:#E1DBFF;}
-
-  /* ---------- footer ---------- */
-  footer{background:var(--bg-soft);color:var(--muted-dim);padding:52px 0 28px;border-top:1px solid var(--line);}
-  .footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px;padding-bottom:36px;border-bottom:1px solid var(--line);margin-bottom:24px;}
-  .footer-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;color:var(--ink);margin-bottom:10px;}
-  .footer-cols{display:flex;gap:64px;flex-wrap:wrap;}
-  .footer-col h4{font-size:13px;color:var(--ink);margin-bottom:14px;font-weight:600;}
-  .footer-col a{display:block;font-size:14px;margin-bottom:10px;opacity:0.85;}
-  .footer-col a:hover{opacity:1;}
-  .footer-bottom{display:flex;justify-content:space-between;font-size:13px;flex-wrap:wrap;gap:10px;}
+  /* footer */
+  footer{background:var(--deep);color:#9DBBAB;padding-bottom:28px;}
+  .zane-strip{height:44px;background-image:var(--zane-sun);background-repeat:repeat-x;background-position:center;border-bottom:1px solid rgba(255,255,255,.12);}
+  .foot-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:40px;padding:52px 0 40px;border-bottom:1px solid rgba(255,255,255,.14);}
+  .foot-brand .brand{color:#fff;--lm-body:var(--green);}
+  .foot-brand p{max-width:34ch;margin-top:14px;font-size:15.5px;}
+  .foot-cols{display:flex;gap:clamp(28px,6vw,72px);flex-wrap:wrap;}
+  .foot-col h4{color:#fff;font-size:15px;font-weight:600;margin-bottom:14px;letter-spacing:-0.01em;}
+  .foot-col a{display:block;font-size:15px;margin-bottom:10px;transition:color .15s;}
+  .foot-col a:hover{color:#fff;}
+  .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:14px;padding-top:24px;}
 
   /* ---------- responsive ---------- */
-  @media (max-width:860px){
+  @media (max-width:900px){
     .nav-links{display:none;}
     .hero-grid{grid-template-columns:1fr;}
-    .feature-layout{grid-template-columns:1fr;}
-    .vtu-grid{grid-template-columns:1fr 1fr;}
-    .security-grid{grid-template-columns:1fr;}
-    .steps{grid-template-columns:1fr 1fr;}
-    .step{border-inline-end:none;border-bottom:1px solid var(--line);padding:24px 0;}
-    .band{grid-template-columns:1fr;}
-    table.compare{font-size:13px;}
-    table.compare th,table.compare td{padding:12px 14px;}
+    .arch{margin:8px auto 0;max-width:400px;}
+    .features-grid{grid-template-columns:1fr;}
+    .features-head{position:static;}
+    .svc-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+    .guard-grid{grid-template-columns:1fr;gap:36px;}
+    .band{grid-template-columns:1fr;border-radius:72px 24px 24px 24px;}
+    .steps{grid-template-columns:1fr;gap:0;}
+    .step{padding:0 0 32px 68px;min-height:46px;}
+    .step::before{top:52px;left:22px;right:auto;bottom:6px;border-top:0;border-left:2px dashed #9DB5A6;}
+    .step:last-child{padding-bottom:0;}
   }
-  @media (max-width:520px){
-    .vtu-grid{grid-template-columns:1fr;}
-    .steps{grid-template-columns:1fr;}
-    .hero-stats{flex-wrap:wrap;row-gap:16px;}
-    .compare-wrap{overflow-x:auto;}
-    table.compare{min-width:560px;}
+  @media (max-width:560px){
+    body{font-size:16.5px;}
+    .brand{font-size:19px;gap:8px;}
+    .brand svg{width:30px;height:30px;}
+    .btn-sm{padding:10px 16px;font-size:14.5px;}
+    .cta-row .btn{width:100%;}
+    .svc-grid{grid-template-columns:1fr;}
+    .feat{grid-template-columns:64px minmax(0,1fr);gap:18px;}
+    .feat .tile-arch{width:64px;height:76px;border-radius:32px 32px 8px 8px;}
+    .feat svg.spot{width:42px;height:42px;}
+    table.compare{min-width:600px;}
+    .faq p{padding-right:0;}
+    .foot-bottom{flex-direction:column;}
   }
-  @media (prefers-reduced-motion: reduce){.strip-inner{animation:none;}*{transition:none !important;}}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;}
+    .s-tile.hot{animation:none;}
+    .s-sheet{animation:none;transform:none;}
+    .spin{animation:none;}
+    .sending{display:none;}
+    .done{animation:none;opacity:1;}
+    .tick{animation:none;stroke-dashoffset:0;}
+  }
 </style>
 </head>
 <body>
 
-<header>
+<!-- icon sprite: all original artwork -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-logo" viewBox="0 0 32 32">
+      <path d="M3 30V15a13 13 0 0 1 26 0v15z" style="fill:var(--lm-body,#06412F)"/>
+      <path d="M9 30V16a7 7 0 0 1 14 0v14" style="fill:none;stroke:#2FD38A;stroke-width:2.4;stroke-linecap:round"/>
+      <path d="M13.5 30V16a2.5 2.5 0 0 1 5 0v14z" style="fill:#FFC53D;stroke:none"/>
+    </symbol>
+    <symbol id="i-data" viewBox="0 0 24 24">
+      <path d="M4 7.4 12 12l8-4.6L12 2.8z" style="fill:var(--ic-a,none);fill-opacity:.35"/>
+      <path d="M12 2.8 20 7.4v9.2l-8 4.6-8-4.6V7.4z"/>
+      <path d="M4 7.4 12 12l8-4.6M12 12v9.2"/>
+    </symbol>
+    <symbol id="i-airtime" viewBox="0 0 24 24">
+      <rect x="6.5" y="2.5" width="11" height="19" rx="3" style="fill:var(--ic-a,none);fill-opacity:.3"/>
+      <path d="M12 8.5v5M9.5 11h5M11 18.6h2"/>
+    </symbol>
+    <symbol id="i-tv" viewBox="0 0 24 24">
+      <rect x="3" y="7" width="18" height="12.5" rx="3" style="fill:var(--ic-a,none);fill-opacity:.3"/>
+      <path d="M8.5 3 12 7l3.5-4M10.4 10.6v4.6l3.8-2.3z"/>
+    </symbol>
+    <symbol id="i-power" viewBox="0 0 24 24">
+      <path d="M12 2.8a6.2 6.2 0 0 0-3.6 11.2c.7.6 1.1 1.3 1.1 2.2v.3h5v-.3c0-.9.4-1.6 1.1-2.2A6.2 6.2 0 0 0 12 2.8z" style="fill:var(--ic-a,none);fill-opacity:.3"/>
+      <path d="M9.8 19.6h4.4M10.6 21.8h2.8M10.3 9.5l1.7 2 1.7-2"/>
+    </symbol>
+    <symbol id="i-exam" viewBox="0 0 24 24">
+      <path d="M2.5 9 12 4.2 21.5 9 12 13.8z" style="fill:var(--ic-a,none);fill-opacity:.35"/>
+      <path d="M6.5 11.4v4.6c0 1.4 2.5 3 5.5 3s5.5-1.6 5.5-3v-4.6M21.5 9v5.5"/>
+    </symbol>
+    <symbol id="i-cash" viewBox="0 0 24 24">
+      <path d="M4.5 12a7.5 7.5 0 0 1 12.9-5.2M18 3.5v3.7h-3.7M19.5 12a7.5 7.5 0 0 1-12.9 5.2M6 20.5v-3.7h3.7"/>
+      <path d="M9.6 15.2V8.8l4.8 6.4V8.8M8.8 11h6.4M8.8 13h6.4"/>
+    </symbol>
+    <symbol id="i-bank" viewBox="0 0 24 24">
+      <path d="M3 9.5 12 4l9 5.5z" style="fill:var(--ic-a,none);fill-opacity:.4"/>
+      <path d="M5.5 11.5v6M9.8 11.5v6M14.2 11.5v6M18.5 11.5v6M3.5 20.5h17"/>
+    </symbol>
+    <symbol id="i-finger" viewBox="0 0 24 24">
+      <path d="M4.5 12a7.5 7.5 0 0 1 15 0v1.5"/>
+      <path d="M8 12.5V12a4 4 0 0 1 8 0v2.5c0 2.2-.6 4.2-1.6 6"/>
+      <path d="M12 12v3c0 1.8-.4 3.4-1.1 4.8M4.5 15.5c0 2 .3 3.6.8 5M19.5 16.5c-.1 1.5-.4 2.8-.9 4"/>
+    </symbol>
+    <symbol id="i-receipt" viewBox="0 0 24 24">
+      <path d="M6 3h12v18l-2.4-1.6L13.2 21 12 20.2 10.8 21l-2.4-1.6L6 21z" style="fill:var(--ic-a,none);fill-opacity:.3"/>
+      <path d="M9.2 10.4l2 2 3.8-3.9M9 15.5h6"/>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 3.5v12M7 11l5 5 5-5M5 20.5h14"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M6.5 4.5l12 7.5-12 7.5z"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><rect x="6.5" y="2.5" width="11" height="19" rx="3"/><path d="M11 18.6h2"/></symbol>
+  </defs>
+</svg>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
   <div class="nav">
-    <div class="logo"><img class="mark" src="pancity-logo.png" alt="Pancity">Pancity</div>
-    <nav class="nav-links">
+    <a href="#" class="brand" aria-label="Almu Data Sub home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><use href="#i-logo"/></svg>
+      <div><b>Almu</b> <span>Data Sub</span></div>
+    </a>
+    <nav class="nav-links" aria-label="Main">
       <a href="#vtu">Services</a>
-      <a href="#how">How It Works</a>
-      <a href="#agent">Become an Agent</a>
+      <a href="#how">How it works</a>
+      <a href="#agent">Become an agent</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a href="#download" class="nav-cta">Get the App</a>
+    <a href="#download" class="btn btn-primary btn-sm">Get the app</a>
   </div>
 </header>
 
+<main id="main">
+
+<!-- ================= HERO ================= -->
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <div class="hero-eyebrow"><span class="dot"></span>Trusted across Nigeria</div>
-      <h1 class="hero-title">Data, airtime and bills — at wholesale rates</h1>
-      <p class="hero-sub">One wallet for mobile data, airtime, cable TV, electricity, exam pins and airtime-to-cash — across MTN, Airtel, Glo and 9mobile. No approval needed to start selling.</p>
-      <div class="hero-ctas">
-        <a href="#download" class="btn-primary">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3v13m0 0l-5-5m5 5l5-5M5 21h14" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Download Pancity
-        </a>
-        <a href="#vtu" class="btn-secondary">See all services</a>
+      <h1>Buy data at agent prices. Sell it at yours.</h1>
+      <p class="lede">Almu Data Sub is one wallet for mobile data, airtime, cable TV, electricity, exam pins and airtime-to-cash across MTN, Airtel, Glo and 9mobile. No approval needed to start selling.</p>
+      <div class="cta-row">
+        <a href="#download" class="btn btn-primary"><svg class="ic" aria-hidden="true"><use href="#i-down"/></svg>Download Almu Data Sub</a>
+        <a href="#vtu" class="btn btn-ghost">See all services</a>
       </div>
-      <div class="store-badges">
-        <a href="#" class="store-badge">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3v13m0 0l-5-5m5 5l5-5M5 21h14" stroke="#7C6CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <div><span class="sb-top">AVAILABLE NOW</span><span class="sb-bottom">Direct APK</span></div>
+      <div class="stores">
+        <a href="#" class="store">
+          <svg class="ic" aria-hidden="true"><use href="#i-down"/></svg>
+          <div><small>Available now</small><strong>Direct APK</strong></div>
         </a>
-        <a href="#" class="store-badge">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 3l11 9-11 9V3z" fill="#00D2FF"/><path d="M3 3l14.5 8.2L21 9 3 3z" fill="#EB4335"/><path d="M3 21l14.5-8.2L21 15 3 21z" fill="#34A853"/><path d="M17.5 11.2L21 9v6l-3.5-2.2 1.5-1.6-1.5-1.6z" fill="#FBBC04"/></svg>
-          <div><span class="sb-top">GET IT ON</span><span class="sb-bottom">Google Play</span></div>
+        <a href="#" class="store">
+          <svg class="ic" aria-hidden="true"><use href="#i-play"/></svg>
+          <div><small>Get it on</small><strong>Google Play</strong></div>
           <em>Soon</em>
         </a>
-        <a href="#" class="store-badge">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M16.6 12.3c0-2 1.6-3 1.7-3.1-1-1.4-2.5-1.6-3-1.6-1.3-.1-2.5.7-3.1.7-.6 0-1.6-.7-2.6-.7-1.3 0-2.6.8-3.3 2-1.4 2.5-.4 6.2 1 8.2.7 1 1.5 2.1 2.6 2 1-.1 1.4-.6 2.7-.6s1.6.6 2.7.6c1.1 0 1.8-1 2.5-2 .8-1.1 1.1-2.2 1.1-2.3-.1 0-2.1-.8-2.2-3.2z" fill="white"/><path d="M14.3 5.9c.6-.7 1-1.7.9-2.7-.9 0-2 .6-2.6 1.3-.6.6-1.1 1.7-1 2.6 1 .1 2-.5 2.7-1.2z" fill="white"/></svg>
-          <div><span class="sb-top">DOWNLOAD ON THE</span><span class="sb-bottom">App Store</span></div>
+        <a href="#" class="store">
+          <svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>
+          <div><small>Download on the</small><strong>App Store</strong></div>
           <em>Soon</em>
         </a>
       </div>
-      <div class="hero-stats">
-        <div class="stat"><b>4</b><span>Networks covered</span></div>
-        <div class="stat"><b>&lt;60s</b><span>Data delivery</span></div>
-        <div class="stat"><b>₦0</b><span>To start reselling</span></div>
+      <div class="networks">
+        <span>Works on</span>
+        <span class="net"><i style="--c:#FFCC00"></i>MTN</span>
+        <span class="net"><i style="--c:#E4002B"></i>Airtel</span>
+        <span class="net"><i style="--c:#50B651"></i>Glo</span>
+        <span class="net"><i style="--c:#006B54"></i>9mobile</span>
       </div>
     </div>
 
-    <div class="app-shot">
-      <img src="pancity-app-screenshot.png" alt="Pancity app home screen showing wallet balance and services">
+    <div class="arch" role="img" aria-label="Almu Data Sub app home screen showing a wallet balance, six services, and a data purchase being delivered">
+      <div class="phone" aria-hidden="true">
+        <div class="screen">
+          <div class="s-top">
+            <div><small>Sannu,</small><b>Aisha</b></div>
+            <span class="s-av">A</span>
+          </div>
+          <div class="s-wallet">
+            <small>Wallet balance</small>
+            <b>₦12,500.00</b>
+            <span class="s-fund">Fund wallet</span>
+          </div>
+          <div class="s-grid">
+            <div class="s-tile hot"><span class="s-ic"><svg class="ic" style="--ic-a:#2FD38A"><use href="#i-data"/></svg></span>Data</div>
+            <div class="s-tile"><span class="s-ic"><svg class="ic" style="--ic-a:#2FD38A"><use href="#i-airtime"/></svg></span>Airtime</div>
+            <div class="s-tile"><span class="s-ic"><svg class="ic" style="--ic-a:#2FD38A"><use href="#i-tv"/></svg></span>Cable TV</div>
+            <div class="s-tile"><span class="s-ic"><svg class="ic" style="--ic-a:#2FD38A"><use href="#i-power"/></svg></span>Electricity</div>
+            <div class="s-tile"><span class="s-ic"><svg class="ic" style="--ic-a:#2FD38A"><use href="#i-exam"/></svg></span>Exam pins</div>
+            <div class="s-tile"><span class="s-ic"><svg class="ic"><use href="#i-cash"/></svg></span>Airtime2Cash</div>
+          </div>
+          <div class="s-acct">
+            <span class="s-ic"><svg class="ic" style="--ic-a:#2FD38A"><use href="#i-bank"/></svg></span>
+            <div><b>Fund by bank transfer</b><small>Your own account number</small></div>
+          </div>
+          <div class="s-sheet">
+            <div class="sheet-row sending">
+              <span class="spin"></span>
+              <div><b>Sending data…</b><small>MTN data to 08•• ••• ••21</small></div>
+            </div>
+            <div class="sheet-row done">
+              <svg width="34" height="34" viewBox="0 0 34 34" style="flex-shrink:0"><circle cx="17" cy="17" r="17" fill="#0B7A50"/><path class="tick" d="M10.5 17.5l4.5 4.5 8.5-9.5" pathLength="1" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div><b>Data delivered</b><small>MTN data to 08•• ••• ••21</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<div class="strip">
-  <div class="strip-inner">
-    <span>Data at wholesale rates</span>
-    <span>Pay electricity bills</span>
-    <span>Free agent onboarding</span>
-    <span>Secure wallet</span>
-    <span>Delivery in seconds</span>
-    <span>Data at wholesale rates</span>
-    <span>Pay electricity bills</span>
-    <span>Free agent onboarding</span>
-    <span>Secure wallet</span>
-    <span>Delivery in seconds</span>
-  </div>
-</div>
-
-<section class="section" id="features">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="section-kicker">Why Pancity</div>
-      <h2 class="section-title">Built around how you actually live, not how banking systems want you to.</h2>
+<!-- ================= FEATURES ================= -->
+<section class="block" id="features">
+  <div class="wrap features-grid">
+    <div class="features-head">
+      <h2 class="title">Built around how you actually live, not how banking systems want you to.</h2>
     </div>
-    <div class="feature-layout">
-      <div class="feature-hero-card">
+    <div>
+      <div class="feat">
+        <div class="tile-arch">
+          <svg class="spot" viewBox="0 0 56 56" aria-hidden="true">
+            <path d="M6 8h20l24 24-18 18L6 26z" fill="#FFC53D" stroke="#06412F" stroke-width="3" stroke-linejoin="round"/>
+            <circle cx="16" cy="18" r="3.5" fill="#E8EFE7" stroke="#06412F" stroke-width="2.5"/>
+            <path d="M23 38V24l10 14V24M21 29h14M21 33h14" fill="none" stroke="#06412F" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
         <div>
-          <div class="icon-badge">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 12h4l3 8 4-16 3 8h4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <h3>Data & airtime at wholesale rates</h3>
-          <p>No approval needed — Pancity gives you agent pricing from day one, whether you're buying for yourself or reselling to others.</p>
+          <h3>Data &amp; airtime at wholesale rates</h3>
+          <p>No approval needed. Almu Data Sub gives you agent pricing from day one, whether you're buying for yourself or reselling to others.</p>
         </div>
       </div>
-      <div class="feature-stack">
-        <div class="feature-row">
-          <div class="icon-badge">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="#B9B3DE" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <div>
-            <h3>Electricity & cable TV bills</h3>
-            <p>Ikeja Electric, Eko Electric, DSTV, GOtv and more — pay straight from your wallet.</p>
-          </div>
+      <div class="feat">
+        <div class="tile-arch">
+          <svg class="spot" viewBox="0 0 56 56" aria-hidden="true">
+            <path d="M18 8l10 9 10-9" fill="none" stroke="#06412F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="5" y="16" width="42" height="30" rx="7" fill="#06412F"/>
+            <rect x="10" y="21" width="32" height="20" rx="3.5" fill="#2FD38A"/>
+            <path d="M44 27 32 44h6l-3 11 15-19h-8z" fill="#FFC53D" stroke="#E8EFE7" stroke-width="2.5" stroke-linejoin="round"/>
+          </svg>
         </div>
-        <div class="feature-row">
-          <div class="icon-badge">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3" stroke="#B9B3DE" stroke-width="1.8"/><path d="M8 12h8M12 8v8" stroke="#B9B3DE" stroke-width="1.8" stroke-linecap="round"/></svg>
-          </div>
-          <div>
-            <h3>A wallet with its own account number</h3>
-            <p>Every user gets a dedicated account number for instant, zero-fee funding via bank transfer.</p>
-          </div>
+        <div>
+          <h3>Electricity &amp; cable TV bills</h3>
+          <p>Ikeja Electric, Eko Electric, DSTV, GOtv and more, paid straight from your wallet.</p>
+        </div>
+      </div>
+      <div class="feat">
+        <div class="tile-arch">
+          <svg class="spot" viewBox="0 0 56 56" aria-hidden="true">
+            <rect x="4" y="12" width="48" height="32" rx="7" fill="#06412F"/>
+            <rect x="10" y="20" width="12" height="9" rx="2.5" fill="#FFC53D"/>
+            <path d="M10 36h18M10 40h9" stroke="#2FD38A" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M34 44V32a7 7 0 0 1 14 0v12z" fill="#2FD38A"/>
+          </svg>
+        </div>
+        <div>
+          <h3>A wallet with its own account number</h3>
+          <p>Every user gets a dedicated account number for instant, zero-fee funding by bank transfer.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section vtu-section" id="vtu">
+<!-- ================= SERVICES ================= -->
+<section class="block services on-deep" id="vtu">
   <div class="wrap">
-    <div class="section-head">
-      <div class="section-kicker">VTU Services</div>
-      <h2 class="section-title">Everything you'd normally queue at a shop for — done from your phone.</h2>
-      <p>Pancity runs on live provider connections, so every purchase is confirmed and delivered automatically — no manual processing, no waiting on an agent.</p>
-    </div>
-    <div class="vtu-grid">
-      <div class="vtu-item">
-        <div class="icon-badge">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12a10 10 0 0114 0M8 15a6 6 0 018 0" stroke="#F4A93C" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="18" r="1.2" fill="#F4A93C"/></svg>
-        </div>
-        <h3>Mobile Data</h3>
+    <h2 class="title">Everything you'd normally queue at a shop for, done from your phone.</h2>
+    <p class="intro">Almu Data Sub runs on live provider connections, so every purchase is confirmed and delivered automatically. No manual processing, no waiting on an agent.</p>
+    <div class="svc-grid">
+      <div class="svc">
+        <div class="tile-arch"><svg class="ic" aria-hidden="true"><use href="#i-data"/></svg></div>
+        <h3>Mobile data</h3>
         <p>SME and gifting bundles across all four networks, priced for resale.</p>
-        <ul><li>MTN, Airtel, Glo, 9mobile</li><li>Daily, weekly & monthly plans</li><li>Delivered in under 60 seconds</li></ul>
+        <ul><li>MTN, Airtel, Glo, 9mobile</li><li>Daily, weekly &amp; monthly plans</li><li>Delivered in under 60 seconds</li></ul>
       </div>
-      <div class="vtu-item">
-        <div class="icon-badge">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="7" y="2" width="10" height="20" rx="2" stroke="#F4A93C" stroke-width="1.8"/></svg>
-        </div>
-        <h3>Airtime Top-Up</h3>
+      <div class="svc">
+        <div class="tile-arch"><svg class="ic" aria-hidden="true"><use href="#i-airtime"/></svg></div>
+        <h3>Airtime top-up</h3>
         <p>Instant recharge for yourself or any number, on any network.</p>
         <ul><li>All four networks supported</li><li>Instant delivery</li><li>Wholesale reseller pricing</li></ul>
       </div>
-      <div class="vtu-item">
-        <div class="icon-badge">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="12" rx="2" stroke="#F4A93C" stroke-width="1.8"/><path d="M9 21h6" stroke="#F4A93C" stroke-width="1.8" stroke-linecap="round"/></svg>
-        </div>
+      <div class="svc">
+        <div class="tile-arch"><svg class="ic" aria-hidden="true"><use href="#i-tv"/></svg></div>
         <h3>Cable TV</h3>
         <p>Renew or subscribe to your decoder without leaving the house.</p>
         <ul><li>DSTV, GOtv, Startimes</li><li>Instant activation</li><li>All bouquet tiers</li></ul>
       </div>
-      <div class="vtu-item">
-        <div class="icon-badge">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="#F4A93C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
+      <div class="svc">
+        <div class="tile-arch"><svg class="ic" aria-hidden="true"><use href="#i-power"/></svg></div>
         <h3>Electricity</h3>
         <p>Pay prepaid or postpaid bills and get your token instantly.</p>
-        <ul><li>Ikeja Electric, Eko Electric</li><li>Prepaid & postpaid</li><li>Instant token delivery</li></ul>
+        <ul><li>Ikeja Electric, Eko Electric</li><li>Prepaid &amp; postpaid</li><li>Instant token delivery</li></ul>
       </div>
-      <div class="vtu-item">
-        <div class="icon-badge">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 3h9l3 3v15H6z" stroke="#F4A93C" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12h6M9 16h6" stroke="#F4A93C" stroke-width="1.8" stroke-linecap="round"/></svg>
-        </div>
-        <h3>Exam Pins</h3>
+      <div class="svc">
+        <div class="tile-arch"><svg class="ic" aria-hidden="true"><use href="#i-exam"/></svg></div>
+        <h3>Exam pins</h3>
         <p>Result checker pins for major Nigerian examination bodies.</p>
         <ul><li>WAEC, NECO, JAMB</li><li>Delivered as a code, instantly</li><li>Valid for official use</li></ul>
       </div>
-      <div class="vtu-item">
-        <div class="icon-badge">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 8h13M4 8l4-4M4 8l4 4M20 16H7M20 16l-4-4M20 16l-4 4" stroke="#F4A93C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
+      <div class="svc">
+        <div class="tile-arch"><svg class="ic" aria-hidden="true"><use href="#i-cash"/></svg></div>
         <h3>Airtime2Cash</h3>
         <p>Convert unused airtime into wallet balance, securely and fast.</p>
         <ul><li>All four networks</li><li>Competitive conversion rate</li><li>Balance lands in your wallet</li></ul>
@@ -378,178 +513,183 @@
   </div>
 </section>
 
-<section class="section" id="security">
+<!-- ================= SECURITY ================= -->
+<section class="block" id="security">
   <div class="wrap">
-    <div class="section-head">
-      <div class="section-kicker">Security</div>
-      <h2 class="section-title">Built to protect your wallet the way you'd protect it yourself.</h2>
-    </div>
-    <div class="security-grid">
-      <div class="security-card">
-        <div class="icon-badge">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 12a3 3 0 106 0 3 3 0 00-6 0z" stroke="#F4A93C" stroke-width="1.8"/><path d="M12 15v5m-3-1l1.5-1.5M15 19l-1.5-1.5" stroke="#F4A93C" stroke-width="1.8" stroke-linecap="round"/><rect x="4" y="3" width="16" height="14" rx="2" stroke="#F4A93C" stroke-width="1.8"/></svg>
-        </div>
+    <h2 class="title">Built to protect your wallet the way you'd protect it yourself.</h2>
+    <div class="guard-grid">
+      <div class="guard">
+        <div class="tile-arch"><svg class="ic" aria-hidden="true"><use href="#i-finger"/></svg></div>
         <h3>Biometric authorization</h3>
         <p>Fingerprint and PIN work as fully independent ways to authorize a transaction, so you're never locked out of your own wallet.</p>
       </div>
-      <div class="security-card">
-        <div class="icon-badge">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3" stroke="#F4A93C" stroke-width="1.8"/><path d="M8 12h8M12 8v8" stroke="#F4A93C" stroke-width="1.8" stroke-linecap="round"/></svg>
-        </div>
+      <div class="guard">
+        <div class="tile-arch"><svg class="ic" aria-hidden="true"><use href="#i-bank"/></svg></div>
         <h3>Protected virtual account</h3>
-        <p>Your dedicated funding account is created and credited through a webhook system with duplicate protection, so a repeated transfer or webhook never credits your wallet twice.</p>
+        <p>Your dedicated funding account is credited through a webhook system with duplicate protection, so a repeated transfer never credits your wallet twice.</p>
       </div>
-      <div class="security-card">
-        <div class="icon-badge">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#F4A93C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" stroke="#F4A93C" stroke-width="1.8" stroke-linejoin="round"/></svg>
-        </div>
+      <div class="guard">
+        <div class="tile-arch"><svg class="ic" aria-hidden="true"><use href="#i-receipt"/></svg></div>
         <h3>Honest transaction status</h3>
-        <p>A purchase is only ever marked "Completed" once it's explicitly confirmed — network failures are distinguished from real rejections, so your history stays accurate.</p>
+        <p>A purchase is only marked "Completed" once it's explicitly confirmed. Network failures are told apart from real rejections, so your history stays accurate.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section steps-section" id="how">
+<!-- ================= HOW IT WORKS ================= -->
+<section class="block alt" id="how">
   <div class="wrap">
-    <div class="section-head">
-      <div class="section-kicker">How It Works</div>
-      <h2 class="section-title">From download to daily earnings — four steps.</h2>
-    </div>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">01</div>
-        <h3>Download Pancity</h3>
+    <h2 class="title">From download to daily earnings in four steps.</h2>
+    <ol class="steps">
+      <li class="step">
+        <span class="n">1</span>
+        <h3>Download Almu Data Sub</h3>
         <p>Get the app from the direct APK or Play Store, then sign up with your phone number.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">02</div>
+      </li>
+      <li class="step">
+        <span class="n">2</span>
         <h3>Fund your wallet</h3>
         <p>Use your dedicated account number for instant, fee-free funding.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">03</div>
+      </li>
+      <li class="step">
+        <span class="n">3</span>
         <h3>Transact</h3>
         <p>Buy data, airtime, or pay bills at wholesale rates, delivered in seconds.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">04</div>
+      </li>
+      <li class="step">
+        <span class="n">4</span>
         <h3>Earn</h3>
         <p>Resell to people around you, and grow your wallet balance with every sale.</p>
-      </div>
-    </div>
+      </li>
+    </ol>
   </div>
 </section>
 
-<section class="section">
+<!-- ================= COMPARISON ================= -->
+<section class="block" id="compare">
   <div class="wrap">
-    <div class="section-head">
-      <div class="section-kicker">Why Pancity</div>
-      <h2 class="section-title">How it compares to the usual way of doing this.</h2>
-    </div>
-    <div class="compare-wrap">
+    <h2 class="title">How it compares to the usual way of doing this.</h2>
+    <div class="compare-wrap" role="region" aria-label="Comparison table" tabindex="0">
       <table class="compare">
         <thead>
-          <tr><th>Feature</th><th>Pancity</th><th>Usual recharge card / agent</th></tr>
+          <tr><th scope="col">Feature</th><th scope="col" class="us">Almu Data Sub</th><th scope="col">Usual recharge card / agent</th></tr>
         </thead>
         <tbody>
-          <tr><td>Pricing</td><td class="win">Wholesale, from day one</td><td class="lose">Retail, or approval needed for agent rates</td></tr>
-          <tr><td>Delivery</td><td class="win">Under 60 seconds</td><td class="lose">Depends on the agent being available</td></tr>
-          <tr><td>Reseller sign-up</td><td class="win">₦0, instant, in-app</td><td class="lose">Often needs stock, paperwork, or a physical shop</td></tr>
-          <tr><td>Wallet funding</td><td class="win">Your own dedicated account number</td><td class="lose">Shared account, manual confirmation</td></tr>
-          <tr><td>Transaction status</td><td class="win">Never shown as complete until confirmed</td><td class="lose">Often unclear if it went through</td></tr>
+          <tr>
+            <th scope="row">Pricing</th>
+            <td class="us"><div class="cellrow"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Wholesale, from day one</div></td>
+            <td class="them">Retail, or approval needed for agent rates</td>
+          </tr>
+          <tr>
+            <th scope="row">Delivery</th>
+            <td class="us"><div class="cellrow"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Under 60 seconds</div></td>
+            <td class="them">Depends on the agent being available</td>
+          </tr>
+          <tr>
+            <th scope="row">Reseller sign-up</th>
+            <td class="us"><div class="cellrow"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>₦0, instant, in-app</div></td>
+            <td class="them">Often needs stock, paperwork, or a physical shop</td>
+          </tr>
+          <tr>
+            <th scope="row">Wallet funding</th>
+            <td class="us"><div class="cellrow"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Your own dedicated account number</div></td>
+            <td class="them">Shared account, manual confirmation</td>
+          </tr>
+          <tr>
+            <th scope="row">Transaction status</th>
+            <td class="us"><div class="cellrow"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Never shown as complete until confirmed</div></td>
+            <td class="them">Often unclear if it went through</td>
+          </tr>
         </tbody>
       </table>
     </div>
   </div>
 </section>
 
-<section class="section" id="agent">
+<!-- ================= AGENT BAND ================= -->
+<section class="block" id="agent" style="padding-top:0">
   <div class="wrap">
     <div class="band">
       <div>
-        <h2>Become an agent — no starting capital required.</h2>
-        <p>You get wholesale pricing the moment you sign up — no activation fee, no paperwork. Resell data and airtime to people around you, track every sale in your wallet, and put your profit straight back into more stock.</p>
-        <a href="#download" class="btn-secondary" style="background:white;color:#3B2E9E;border-color:white;margin-top:22px;display:inline-block;">Start earning</a>
+        <h2>Become an agent. No starting capital required.</h2>
+        <p>You get wholesale pricing the moment you sign up, with no activation fee and no paperwork. Resell data and airtime to people around you, track every sale in your wallet, and put your profit straight back into more stock.</p>
+        <a href="#download" class="btn btn-dark">Start earning</a>
       </div>
-      <div class="band-figures">
-        <div class="band-figure"><span>Starting cost</span><b>₦0</b></div>
-        <div class="band-figure"><span>Delivery time</span><b>&lt;60s</b></div>
-        <div class="band-figure"><span>Reseller pricing</span><b>Day one</b></div>
-      </div>
+      <dl class="figs">
+        <div class="fig"><dt>Starting cost</dt><dd>₦0</dd></div>
+        <div class="fig"><dt>Delivery time</dt><dd>&lt;60s</dd></div>
+        <div class="fig"><dt>Reseller pricing</dt><dd>Day one</dd></div>
+      </dl>
     </div>
   </div>
 </section>
 
-<section class="section" id="faq">
+<!-- ================= FAQ ================= -->
+<section class="block alt" id="faq">
   <div class="wrap">
-    <div class="section-head">
-      <div class="section-kicker">FAQ</div>
-      <h2 class="section-title">Common questions.</h2>
-    </div>
-    <div class="faq-list">
-      <details class="faq-item" open>
-        <summary>Is my money safe in the wallet?
-          <svg class="chevron" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </summary>
+    <h2 class="title">Common questions.</h2>
+    <div class="faq">
+      <details open>
+        <summary>Is my money safe in the wallet?<svg class="ic chev" aria-hidden="true"><use href="#i-chev"/></svg></summary>
         <p>Yes. Every transaction is authorized with your PIN or fingerprint, and wallet funding runs through a webhook system with duplicate protection, so a repeated transfer never credits you twice.</p>
       </details>
-      <details class="faq-item">
-        <summary>What happens if a network fails during a purchase?
-          <svg class="chevron" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </summary>
-        <p>Pancity distinguishes a network failure from a confirmed rejection, so your transaction is never marked "Completed" unless it's actually been confirmed by the provider. Contact support if a transaction is stuck and it'll be resolved.</p>
+      <details>
+        <summary>What happens if a network fails during a purchase?<svg class="ic chev" aria-hidden="true"><use href="#i-chev"/></svg></summary>
+        <p>Almu Data Sub distinguishes a network failure from a confirmed rejection, so your transaction is never marked "Completed" unless the provider has actually confirmed it. If a transaction is stuck, contact support and it will be resolved.</p>
       </details>
-      <details class="faq-item">
-        <summary>Do I have to pay to become a reseller?
-          <svg class="chevron" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </summary>
+      <details>
+        <summary>Do I have to pay to become a reseller?<svg class="ic chev" aria-hidden="true"><use href="#i-chev"/></svg></summary>
         <p>No. There's no activation fee or hidden charge. You get wholesale pricing the moment you sign up.</p>
       </details>
-      <details class="faq-item">
-        <summary>How do I fund my wallet?
-          <svg class="chevron" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </summary>
+      <details>
+        <summary>How do I fund my wallet?<svg class="ic chev" aria-hidden="true"><use href="#i-chev"/></svg></summary>
         <p>Every account comes with its own dedicated virtual account number. Transfer to it from any Nigerian bank and your wallet is credited instantly.</p>
       </details>
     </div>
   </div>
 </section>
 
-<footer id="download">
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer id="download" class="on-deep">
+  <div class="zane-strip" aria-hidden="true"></div>
   <div class="wrap">
-    <div class="footer-top">
-      <div>
-        <div class="footer-logo" style="display:flex;align-items:center;gap:9px;"><img src="pancity-logo.png" alt="Pancity" style="width:24px;height:24px;">Pancity</div>
-        <p style="max-width:32ch;font-size:14px;">Nigeria's digital wallet — data, airtime, bills, and profit, all in one place.</p>
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="brand">
+          <svg viewBox="0 0 32 32" aria-hidden="true"><use href="#i-logo"/></svg>
+          <div><b>Almu</b> <span>Data Sub</span></div>
+        </div>
+        <p>Nigeria's digital wallet: data, airtime, bills and profit, all in one place.</p>
       </div>
-      <div class="footer-cols">
-        <div class="footer-col">
+      <div class="foot-cols">
+        <div class="foot-col">
           <h4>App</h4>
           <a href="#">Download Direct APK</a>
           <a href="#">Google Play (coming soon)</a>
           <a href="#">App Store (coming soon)</a>
         </div>
-        <div class="footer-col">
+        <div class="foot-col">
           <h4>Company</h4>
           <a href="#vtu">Services</a>
-          <a href="#agent">Become an Agent</a>
+          <a href="#agent">Become an agent</a>
           <a href="#">Support</a>
         </div>
-        <div class="footer-col">
+        <div class="foot-col">
           <h4>Contact</h4>
-          <a href="mailto:info@pancity.ng">info@pancity.ng</a>
-          <a href="#">pancity.ng</a>
+          <a href="mailto:support@pancity.com">support@pancity.com</a>
         </div>
-        <div class="footer-col">
+        <div class="foot-col">
           <h4>Legal</h4>
           <a href="privacy.html">Privacy Policy</a>
           <a href="terms.html">Terms of Service</a>
         </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 Pancity. All rights reserved.</span>
+    <div class="foot-bottom">
+      <span>© 2026 Almu Data Sub. All rights reserved.</span>
       <span>Built with care in Nigeria</span>
     </div>
   </div>
