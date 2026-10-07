@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service — Almu Data Sub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #120F2B;
+    --bg-soft: #17133A;
+    --ink: #FFFFFF;
+    --muted: #B9B3DE;
+    --muted-dim: #8079B0;
+    --gold: #F4A93C;
+    --line: rgba(255,255,255,0.10);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--bg);
+    color:var(--muted);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1{
+    font-family:'Space Grotesk',sans-serif;
+    color:var(--ink);
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+  a{color:var(--gold);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  img,svg{display:block;max-width:100%;}
+  .wrap{max-width:720px;margin:0 auto;padding:0 clamp(20px,5vw,48px);}
+
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(18,15,43,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:18px clamp(20px,5vw,48px);max-width:1180px;margin:0 auto;}
+  .logo{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;color:var(--ink);}
+  .logo .mark{width:30px;height:30px;flex-shrink:0;object-fit:contain;}
+  .back{font-size:14px;font-weight:500;color:var(--muted);opacity:0.9;}
+  .back:hover{color:var(--ink);}
+
+  main{padding:64px 0 88px;}
+  h1{font-size:clamp(28px,4vw,36px);margin-bottom:8px;}
+  .updated{color:var(--muted-dim);font-size:13px;margin-bottom:36px;}
+  .lede{font-size:17px;color:var(--ink);opacity:0.9;margin-bottom:36px;}
+
+  ol{margin:0;padding-left:20px;}
+  ol li{margin-bottom:20px;padding-left:4px;}
+  ol li:last-child{margin-bottom:0;}
+
+  footer{background:var(--bg-soft);color:var(--muted-dim);padding:36px 0;border-top:1px solid var(--line);font-size:13px;}
+  .footer-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;align-items:center;}
+  .footer-links a{margin-right:20px;color:var(--muted-dim);}
+  .footer-links a:hover{color:var(--ink);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo"><img class="mark" src="logo.png" alt="Almu Data Sub" onerror="this.onerror=null;this.src=&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M3 30V15a13 13 0 0 1 26 0v15z' fill='%2306412F'/%3E%3Cpath d='M9 30V16a7 7 0 0 1 14 0v14' fill='none' stroke='%232FD38A' stroke-width='2.4' stroke-linecap='round'/%3E%3Cpath d='M13.5 30V16a2.5 2.5 0 0 1 5 0v14z' fill='%23FFC53D'/%3E%3C/svg%3E&quot;"> Almu Data Sub</div>
+    <a href="index.html" class="back">← Back to Almu Data Sub</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Terms of Service</h1>
+  <p class="updated">Last updated: October 2026</p>
+
+  <p class="lede">Welcome to Almu Data Sub. By creating an account or using our services, you agree to these Terms.</p>
+
+  <ol>
+    <li>You must provide accurate and complete information during registration.</li>
+    <li>You are responsible for keeping your account and password secure.</li>
+    <li>All transactions are final once successfully processed.</li>
+    <li>Users must not use Almu Data Sub for fraudulent or illegal activities.</li>
+    <li>Almu Data Sub reserves the right to suspend or terminate accounts that violate these Terms.</li>
+    <li>Service availability may be affected by network providers or maintenance.</li>
+    <li>These Terms may be updated from time to time. Continued use of Almu Data Sub means you accept the updated Terms.</li>
+  </ol>
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <span>© 2026 Almu Data Sub. All rights reserved.</span>
+    <span class="footer-links">
+      <a href="terms.html">Terms of Service</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </span>
+  </div>
+</footer>
+
+</body>
+</html>
