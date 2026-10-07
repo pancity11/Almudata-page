@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Delete Your Account — Almu Data Sub</title>
+<style>
+  :root{
+    --bg:#0A0E17;
+    --card:#101827;
+    --card-border:#1E293B;
+    --text:#E7ECF5;
+    --subtext:#8B96AA;
+    --blue:#0066FF;
+    --blue-soft:rgba(0,102,255,0.12);
+    --danger:#F0475A;
+    --danger-soft:rgba(240,71,90,0.12);
+    --green:#1FAE6B;
+    --green-soft:rgba(31,174,107,0.12);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(700px 400px at 50% -10%, rgba(0,102,255,0.14), transparent 60%),
+      var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.5;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    padding:48px 20px 64px;
+  }
+  main{width:100%;max-width:560px;}
+
+  .brand{display:flex;align-items:center;gap:10px;margin-bottom:36px;}
+  .brand-mark{
+    width:34px;height:34px;flex-shrink:0;object-fit:contain;display:block;
+  }
+  .brand-name{font-weight:700;font-size:15px;letter-spacing:-0.01em;}
+
+  h1{
+    font-size:clamp(1.5rem,4vw,1.85rem);
+    font-weight:800;
+    letter-spacing:-0.02em;
+    margin:0 0 10px;
+    line-height:1.2;
+  }
+  .lede{
+    color:var(--subtext);
+    font-size:14.5px;
+    margin:0 0 32px;
+    max-width:46ch;
+  }
+
+  .card{
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:18px;
+    padding:22px 22px 24px;
+    margin-bottom:16px;
+  }
+  .card h2{
+    font-size:12px;
+    font-weight:700;
+    color:var(--blue);
+    margin:0 0 4px;
+  }
+  .card h3{
+    font-size:16px;
+    font-weight:700;
+    margin:0 0 14px;
+  }
+
+  ol.steps{margin:0;padding-left:20px;color:var(--text);font-size:14.5px;}
+  ol.steps li{margin-bottom:9px;}
+  ol.steps li:last-child{margin-bottom:0;}
+  ol.steps b{font-weight:700;}
+
+  .divider-row{
+    display:flex;align-items:center;gap:12px;
+    margin:26px 0;
+    color:var(--subtext);
+    font-size:12px;
+  }
+  .divider-row .line{flex:1;height:1px;background:var(--card-border);}
+
+  .request-form{display:flex;flex-direction:column;gap:12px;}
+  label{font-size:12.5px;color:var(--subtext);font-weight:600;}
+  input,textarea{
+    width:100%;
+    background:#0C1220;
+    border:1px solid var(--card-border);
+    border-radius:12px;
+    padding:11px 13px;
+    color:var(--text);
+    font-size:14px;
+    font-family:inherit;
+    outline:none;
+  }
+  input:focus,textarea:focus{border-color:var(--blue);}
+  textarea{resize:vertical;min-height:72px;}
+
+  .field{display:flex;flex-direction:column;gap:6px;}
+
+  .submit-btn{
+    margin-top:4px;
+    border:none;
+    border-radius:12px;
+    padding:13px 18px;
+    font-size:14.5px;
+    font-weight:700;
+    color:white;
+    background:linear-gradient(90deg,#F0475A,#D6273D);
+    cursor:pointer;
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    box-shadow:0 8px 20px rgba(240,71,90,0.25);
+  }
+  .submit-btn:active{transform:scale(0.98);}
+  .submit-btn:focus-visible{outline:2px solid white;outline-offset:2px;}
+
+  .form-note{font-size:12px;color:var(--subtext);margin-top:2px;}
+
+  .retain-box{
+    background:var(--blue-soft);
+    border:1px solid rgba(0,102,255,0.28);
+    border-radius:14px;
+    padding:16px 17px;
+    font-size:13.5px;
+    color:#C7D6F5;
+  }
+  .retain-box b{color:var(--text);}
+
+  .contact-row{display:flex;gap:10px;margin-top:14px;}
+  .contact-pill{
+    flex:1;
+    display:flex;align-items:center;gap:9px;
+    background:#0C1220;
+    border:1px solid var(--card-border);
+    border-radius:13px;
+    padding:11px 12px;
+    text-decoration:none;
+    color:inherit;
+  }
+  .contact-pill .ic{
+    width:26px;height:26px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .contact-pill.mail .ic{background:var(--blue);}
+  .contact-pill.phone .ic{background:var(--green);}
+  .contact-pill .label{font-size:9.5px;color:var(--subtext);display:block;}
+  .contact-pill .value{font-size:12px;font-weight:700;display:block;white-space:nowrap;}
+  .contact-pill.mail .value{color:#79A8FF;}
+  .contact-pill.phone .value{color:#5BD69B;}
+
+  footer{
+    text-align:center;
+    margin-top:36px;
+    color:var(--subtext);
+    font-size:11.5px;
+  }
+
+  @media (max-width:420px){
+    .contact-row{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+<main>
+
+  <div class="brand">
+    <img class="brand-mark" src="logo.png" alt="Almu Data Sub" onerror="this.onerror=null;this.src=&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M3 30V15a13 13 0 0 1 26 0v15z' fill='%2306412F'/%3E%3Cpath d='M9 30V16a7 7 0 0 1 14 0v14' fill='none' stroke='%232FD38A' stroke-width='2.4' stroke-linecap='round'/%3E%3Cpath d='M13.5 30V16a2.5 2.5 0 0 1 5 0v14z' fill='%23FFC53D'/%3E%3C/svg%3E&quot;">
+    <div class="brand-name">Almu Data Sub</div>
+  </div>
+
+  <h1>Delete your account</h1>
+  <p class="lede">You can remove your Almu Data Sub account and personal data at any time. Choose the in-app method for the fastest result, or send us a request below.</p>
+
+  <div class="card">
+    <h2>OPTION 1 · IN THE APP</h2>
+    <h3>Delete from your device</h3>
+    <ol class="steps">
+      <li>Open the <b>Almu Data Sub</b> app and sign in</li>
+      <li>Go to <b>Profile → Account Settings</b></li>
+      <li>Tap <b>Delete Account</b> and confirm with your transaction PIN</li>
+      <li>Your account is deactivated immediately and queued for permanent deletion</li>
+    </ol>
+  </div>
+
+  <div class="divider-row">
+    <span class="line"></span> or request it here <span class="line"></span>
+  </div>
+
+  <div class="card">
+    <h2>OPTION 2 · REQUEST FORM</h2>
+    <h3>Ask us to delete it for you</h3>
+    <form class="request-form" action="mailto:support@almudatasub.com" method="post" enctype="text/plain">
+      <div class="field">
+        <label for="fullname">Full name</label>
+        <input id="fullname" name="Full name" type="text" placeholder="e.g. Musa Ibrahim" required />
+      </div>
+      <div class="field">
+        <label for="contact">Registered phone number or email</label>
+        <input id="contact" name="Registered phone or email" type="text" placeholder="Phone or email used on Almu Data Sub" required />
+      </div>
+      <div class="field">
+        <label for="reason">Reason (optional)</label>
+        <textarea id="reason" name="Reason" placeholder="Tell us why you're leaving — helps us improve"></textarea>
+      </div>
+      <button class="submit-btn" type="submit">Send Deletion Request</button>
+      <p class="form-note">This opens your email app addressed to support@almudatasub.com. We verify your identity before deleting anything.</p>
+    </form>
+  </div>
+
+  <div class="card">
+    <h2>WHAT GETS DELETED</h2>
+    <div class="retain-box">
+      <b>Removed immediately:</b> profile details, saved beneficiaries, app preferences and login access.<br/><br/>
+      <b>Kept for a period:</b> wallet transaction records are retained as required under Nigerian financial regulations, then deleted. Any wallet balance is refunded to your bank account before closure.
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>NEED HELP?</h2>
+    <h3>Talk to support first</h3>
+    <div class="contact-row">
+      <a class="contact-pill mail" href="mailto:support@almudatasub.com">
+        <span class="ic">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M3 6h18v12H3z" stroke="white" stroke-width="2" stroke-linejoin="round"/><path d="M3 7l9 6 9-6" stroke="white" stroke-width="2" stroke-linejoin="round"/></svg>
+        </span>
+        <span><span class="label">Email</span><span class="value">support@almudatasub.com</span></span>
+      </a>
+    </div>
+  </div>
+
+  <footer>Almu Data Sub · Data handled in line with the NDPR</footer>
+
+</main>
+</body>
+</html>
