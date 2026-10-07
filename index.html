@@ -71,7 +71,7 @@
   .site-header{position:sticky;top:0;z-index:50;background:rgba(244,247,243,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
   .nav{display:flex;align-items:center;justify-content:space-between;gap:24px;max-width:1180px;margin:0 auto;padding:13px clamp(20px,5vw,48px);}
   .brand{display:flex;align-items:center;gap:10px;white-space:nowrap;font-family:var(--display);font-size:21px;color:var(--ink);letter-spacing:-0.02em;line-height:1;}
-  .brand svg{width:34px;height:34px;}
+  .brand .logo-img{width:34px;height:34px;object-fit:contain;display:block;flex-shrink:0;}
   .brand b{font-weight:800;}
   .brand span{font-weight:500;}
   .nav-links{display:flex;gap:30px;font-weight:500;font-size:15.5px;}
@@ -241,7 +241,7 @@
   @media (max-width:560px){
     body{font-size:16.5px;}
     .brand{font-size:19px;gap:8px;}
-    .brand svg{width:30px;height:30px;}
+    .brand .logo-img{width:30px;height:30px;}
     .btn-sm{padding:10px 16px;font-size:14.5px;}
     .cta-row .btn{width:100%;}
     .svc-grid{grid-template-columns:1fr;}
@@ -325,7 +325,7 @@
 <header class="site-header">
   <div class="nav">
     <a href="#" class="brand" aria-label="Almu Data Sub home">
-      <svg viewBox="0 0 32 32" aria-hidden="true"><use href="#i-logo"/></svg>
+      <img class="logo-img" src="logo.png" alt="Almu Data Sub" onerror="this.onerror=null;this.src=&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M3 30V15a13 13 0 0 1 26 0v15z' fill='%2306412F'/%3E%3Cpath d='M9 30V16a7 7 0 0 1 14 0v14' fill='none' stroke='%232FD38A' stroke-width='2.4' stroke-linecap='round'/%3E%3Cpath d='M13.5 30V16a2.5 2.5 0 0 1 5 0v14z' fill='%23FFC53D'/%3E%3C/svg%3E&quot;">
       <div><b>Almu</b> <span>Data Sub</span></div>
     </a>
     <nav class="nav-links" aria-label="Main">
@@ -659,7 +659,7 @@
     <div class="foot-top">
       <div class="foot-brand">
         <div class="brand">
-          <svg viewBox="0 0 32 32" aria-hidden="true"><use href="#i-logo"/></svg>
+          <img class="logo-img" src="logo.png" alt="Almu Data Sub" onerror="this.onerror=null;this.src=&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M3 30V15a13 13 0 0 1 26 0v15z' fill='%2306412F'/%3E%3Cpath d='M9 30V16a7 7 0 0 1 14 0v14' fill='none' stroke='%232FD38A' stroke-width='2.4' stroke-linecap='round'/%3E%3Cpath d='M13.5 30V16a2.5 2.5 0 0 1 5 0v14z' fill='%23FFC53D'/%3E%3C/svg%3E&quot;">
           <div><b>Almu</b> <span>Data Sub</span></div>
         </div>
         <p>Nigeria's digital wallet: data, airtime, bills and profit, all in one place.</p>
